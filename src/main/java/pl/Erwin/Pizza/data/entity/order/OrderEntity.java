@@ -1,7 +1,10 @@
 package pl.Erwin.Pizza.data.entity.order;
 
+import pl.Erwin.Pizza.data.entity.ordersize.OrderSizeEntity;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -37,4 +40,7 @@ public class OrderEntity {
 
     @Column(name = "token")
     private String token;
+
+    @OneToMany(mappedBy = "order")
+    private Set<OrderSizeEntity> orderSize;
 }

@@ -1,7 +1,10 @@
 package pl.Erwin.Pizza.data.entity.pizza;
 
 
+import pl.Erwin.Pizza.data.entity.size.SizeEntity;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "pizzas")
@@ -14,6 +17,8 @@ public class PizzaEntity {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(mappedBy = "pizza")
+    private Set<SizeEntity> sizes;
     public Integer getId() {
         return id;
     }
